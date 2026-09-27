@@ -103,4 +103,4 @@ Now that you have schemas attached:
 
 1. **[Create simple mappings](../03-creating-mappings/)** between source and target fields
 2. **[Add conditional logic](../04-conditional-mappings/)** for complex transformations
-3. **[Use the XPath editor](../05-xpath-editor/)** for advanced expressions
+3. **[Use the XPath editor](../07-xpath-editor/)** for advanced expressions
