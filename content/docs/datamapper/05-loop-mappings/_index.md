@@ -89,12 +89,12 @@ Merge multiple source collections into a single target collection by stacking mu
 1. **Create the first for-each mapping** as described above
 
 2. **Add another for-each** — Click **"Add Mapping Instruction"** in the placeholder below the first mapping and select **"Wrap with for-each"**
-<!-- MEDIA PLACEHOLDER: Screenshot showing the "Add Mapping Instruction" placeholder button below the first for-each node, with the context menu open and "Wrap with for-each" highlighted. -->
+{{< image-sh src="datamapper-wrap-with-for-each.png" text="Add Mapping Instruction dropdown with 'Wrap with for-each' selected" >}}
 
 3. **Configure the second collection** — Select the source collection and map its fields
 {{< image-sh src="datamapper-map-2nd-for-each-children.png" text="Configure second collection and map its fields" >}}
 
-{{< video src="./dm_multiplemappings.mp4" subtitles="./dm_multiplemappings.vtt" >}}
+{{< image-sh src="dm_multiplemappings.gif" text="Merging two source collections into a single target collection with multiple for-each mappings" >}}
 
 > [!TIP]
 > This is useful for merging items from two different source arrays into a single output array.
@@ -118,13 +118,13 @@ Use `xsl:for-each-group` when you need to group items from a source collection b
 
 1. **Click the `⋮` menu** on the target collection field and select **"Wrap with Instruction" → "Wrap with for-each-group"**
 
-<!-- MEDIA PLACEHOLDER: Screenshot showing the context menu open on a collection target field with "Wrap with Instruction" flyout expanded and "Wrap with for-each-group" highlighted. -->
+{{< image-sh src="datamapper-for-each-group-menu.png" text="Wrap with Instruction flyout — select 'Wrap with for-each-group'" >}}
 
 2. **Enter the source collection XPath** in the inline input — this is the population to group (the `select` attribute of `xsl:for-each-group`)
 
 3. **Click the `⋮` menu** on the `for-each-group` node and select **"Configure for-each-group"** to open the configuration modal
 
-<!-- MEDIA PLACEHOLDER: Screenshot showing the ForEachGroup configuration modal with the strategy dropdown and grouping expression field visible. -->
+{{< image-sh src="datamapper-for-each-group-modal.png" text="Configure for-each-group modal with strategy dropdown and grouping expression" >}}
 
 4. **Choose a grouping strategy** from the dropdown — select one of the four strategies described above
 
@@ -138,7 +138,7 @@ Use `xsl:for-each-group` when you need to group items from a source collection b
 
 9. **(Optional) Iterate the group members individually** — Click the `⋮` menu on the `for-each-group` node and select **"Inner Instruction" → "Inner for-each current-group()"**. This inserts a `for-each` with `select="current-group()"` inside the group scope so you can map per-item fields.
 
-<!-- MEDIA PLACEHOLDER: Screencast showing the full for-each-group workflow: wrap → configure modal (strategy + grouping expression) → map fields inside the group. The dm-for-each-group.gif from the 2.12 release blog post may be reusable here. -->
+{{< image-sh src="datamapper-for-each-group-workflow.gif" text="Full for-each-group workflow: wrap → configure strategy → map fields inside the group" >}}
 
 ### Inner "for-each-group"
 
