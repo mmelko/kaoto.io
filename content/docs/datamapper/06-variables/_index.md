@@ -12,7 +12,7 @@ The DataMapper supports `xsl:variable` as first-class mapping sources. Variables
 Variables have two scopes:
 
 - **Global (template-level)** — defined at the top of the `xsl:template`, available anywhere in the mapping. Created from the Variables panel header.
-- **Local (node-scoped)** — defined immediately before a specific target field, available only to that field and its following siblings within the same scope. Created from the `⋮` mapping context menu on a target field.
+- **Local (node-scoped)** — defined as a child of a container field or instruction node, available to that node's content and its following siblings within the same scope. Created from the `⋮` mapping context menu.
 
 > [!NOTE]
 > The XSLT following-sibling rule applies: a local variable can only be referenced by fields that come after it in the same scope. The DataMapper enforces this during drag-and-drop — drops that would violate the rule are rejected.
@@ -21,7 +21,7 @@ Variables have two scopes:
 
 ## The Variables Panel
 
-The **Variables** panel sits in the source tree, below the Source Body and Parameters sections. It lists all variables available at the current mapping scope.
+The **Variables** panel sits at the top of the source tree, above the Parameters and Source Body sections. It lists all variables available at the current mapping scope.
 
 <!-- MEDIA PLACEHOLDER: Screenshot showing the Variables panel in the source tree with one global variable and one local variable visible, with the "+" button highlighted in the panel header. The dm-variables.gif from the 2.12 release blog post may be reusable here. -->
 
@@ -54,7 +54,7 @@ A global variable is available throughout the entire mapping. Use it to compute 
 
 ## Add a Local Variable
 
-A local variable is scoped to a specific target field — it is inserted as an `xsl:variable` immediately before that field in the generated XSLT and is available only within that field's scope.
+A local variable is added as a child of a container field or instruction node — the `xsl:variable` is placed inside that node's scope in the generated XSLT, available to its content and following siblings.
 
 ### Steps
 
@@ -69,7 +69,7 @@ A local variable is scoped to a specific target field — it is inserted as an `
 > Local variables do not have an inline expression input in the Variables panel — their value is set by mapping source fields onto the variable row, just like any other target field.
 
 > [!TIP]
-> "Add variable" only appears in the `⋮` menu on container fields (fields that have children). It is not available on leaf fields or on instruction nodes like `for-each`.
+> "Add variable" only appears in the `⋮` menu on container fields (fields that have children) and on instruction nodes such as `for-each`, `for-each-group`, `if`, `when`, and `otherwise`. It is not available on leaf fields.
 
 ---
 
@@ -118,5 +118,5 @@ Click the **eye icon** in the Variables panel header to toggle visibility of the
 
 ## Next Steps
 
-1. **[XPath Editor](../07-xpath-editor/)** — write complex expressions that reference variables
+1. **[XPath Editor](../07-xpath-editor/)** — write complex expressions in the variable definition, or reference variables
 2. **[Loop Mappings](../05-loop-mappings/)** — variables are particularly useful inside `for-each` and `for-each-group` scopes to capture intermediate values

@@ -36,6 +36,16 @@ Use `xsl:for-each` when you want to transform each item of a source collection i
 > [!IMPORTANT]
 > Inside a for-each mapping, field paths are relative to the current collection item. For example, if iterating over `Items`, reference `Name` instead of `Items/Name`.
 
+### Inner "for-each"
+
+Use **Inner "for-each"** when the target field is always emitted (not a collection) but its content should be produced by iterating a source collection. Apply it to the target field instead of wrapping it:
+
+1. **Click the `⋮` menu** on the target field and select **"Inner Instruction" → "Inner for-each"**
+2. **Enter the source collection XPath** on the inner `for-each` node
+3. **Map child fields** inside the `for-each` scope
+
+The outer target field is always written to the output; the `for-each` controls what is written inside it.
+
 ---
 
 ## Sorting For-Each Results
@@ -79,7 +89,7 @@ Merge multiple source collections into a single target collection by stacking mu
 1. **Create the first for-each mapping** as described above
 
 2. **Add another for-each** — Click **"Add Mapping Instruction"** in the placeholder below the first mapping and select **"Wrap with for-each"**
-{{< image-sh src="datamapper-wrap-with-for-each.png" text="Add second for-each mapping" >}}
+<!-- MEDIA PLACEHOLDER: Screenshot showing the "Add Mapping Instruction" placeholder button below the first for-each node, with the context menu open and "Wrap with for-each" highlighted. -->
 
 3. **Configure the second collection** — Select the source collection and map its fields
 {{< image-sh src="datamapper-map-2nd-for-each-children.png" text="Configure second collection and map its fields" >}}
@@ -124,20 +134,20 @@ Use `xsl:for-each-group` when you need to group items from a source collection b
 
 7. **Click Save**
 
-8. **Map fields inside the group** — Inside the `for-each-group` scope, map fields as normal. Field paths are relative to the current group's context item. Use `current-group()` to reference all items in the current group.
+8. **Map fields inside the group** — Inside the `for-each-group` scope, map fields as normal. Field paths are relative to the current group's context item.
 
-> [!TIP]
-> Once inside a `for-each-group` scope, the **Inner Instruction** submenu offers **"Inner for-each current-group()"** to iterate over the members of the current group for detail-level mappings.
+9. **(Optional) Iterate the group members individually** — Click the `⋮` menu on the `for-each-group` node and select **"Inner Instruction" → "Inner for-each current-group()"**. This inserts a `for-each` with `select="current-group()"` inside the group scope so you can map per-item fields.
 
 <!-- MEDIA PLACEHOLDER: Screencast showing the full for-each-group workflow: wrap → configure modal (strategy + grouping expression) → map fields inside the group. The dm-for-each-group.gif from the 2.12 release blog post may be reusable here. -->
 
-### Nesting groups
+### Inner "for-each-group"
 
-For hierarchical groupings, add an inner `for-each-group` inside an existing `for-each-group` scope:
+When the target field is always emitted but its content should be produced by grouping a source collection, apply Inner "for-each-group" directly to the target field:
 
-1. **Click the `⋮` menu** on a field inside the outer group and select **"Inner Instruction" → "Inner for-each-group"**
-2. Configure the inner grouping expression and strategy
-3. Map fields for each inner group
+1. **Click the `⋮` menu** on the target field and select **"Inner Instruction" → "Inner for-each-group"**
+2. **Enter the source collection XPath** on the inner `for-each-group` node
+3. **Click the `⋮` menu** on the `for-each-group` node and select **"Configure for-each-group"** to set the grouping strategy and expression
+4. **Map fields** inside the group scope
 
 ---
 
