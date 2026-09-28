@@ -23,7 +23,7 @@ Variables have two scopes:
 
 The **Variables** panel sits at the top of the source tree, above the Parameters and Source Body sections. It lists all variables available at the current mapping scope.
 
-<!-- MEDIA PLACEHOLDER: Screenshot showing the Variables panel in the source tree with one global variable and one local variable visible, with the "+" button highlighted in the panel header. The dm-variables.gif from the 2.12 release blog post may be reusable here. -->
+{{< image-sh src="datamapper-variables-panel.png" text="Variables panel in the source tree with global and local variables" >}}
 
 Each variable row shows:
 - The variable name prefixed with `$`
@@ -41,7 +41,7 @@ A global variable is available throughout the entire mapping. Use it to compute 
 
 1. **Click the `+` button** in the Variables panel header
 
-<!-- MEDIA PLACEHOLDER: Screenshot showing the Variables panel header with the "+" (Add global variable) button highlighted. -->
+{{< image-sh src="datamapper-variables-add-global.gif" text="Click the + button to add a global variable, type the name and set the value expression" >}}
 
 2. **Type the variable name** and press **Enter** to confirm (or **Escape** to cancel)
 
@@ -61,7 +61,7 @@ A local variable is added as a child of a container field or instruction node �
 1. **Click the `⋮` menu** on the target field where you want to define the variable
 2. **Select "Add variable"**
 
-<!-- MEDIA PLACEHOLDER: Screenshot showing the ⋮ context menu open with "Add variable" highlighted. -->
+{{< image-sh src="datamapper-variables-add-local-menu.png" text="Select 'Add variable' from the ⋮ context menu on a container target field" >}}
 
 3. **Type the variable name** and press **Enter** to confirm
 
@@ -83,7 +83,7 @@ Once a variable exists in the Variables panel, drag it onto a target field to cr
 2. **Drag it** onto a target field — the mapping line shows a `Var://` prefix to indicate the source is a variable reference
 3. The generated XPath expression references the variable as `$variableName`
 
-<!-- MEDIA PLACEHOLDER: Screenshot showing a variable row being dragged onto a target field, with the resulting Var:// mapping line visible. -->
+{{< image-sh src="datamapper-variables-overview.gif" text="Drag a variable from the Variables panel onto a target field to create a Var:// mapping" >}}
 
 > [!TIP]
 > You can also type `$variableName` directly in the inline XPath input or in the XPath Editor rather than dragging.
