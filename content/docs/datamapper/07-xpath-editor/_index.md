@@ -7,14 +7,11 @@ weight: 7
 
 ## Overview
 
-The XPath Editor provides a powerful way to create complex data transformations beyond simple field-to-field mappings. While drag-and-drop is great for basic mappings, the XPath Editor lets you combine fields, apply functions, perform calculations, and implement sophisticated business logic.
+The XPath Editor is a full-featured code editor for writing XPath expressions. Every target field also has an inline expression input for quick edits, but the XPath Editor is the right tool when:
 
-**When to use the XPath Editor:**
-- Combining multiple source fields into one target field
-- Applying string manipulation (concatenation, substring, case conversion)
-- Performing mathematical calculations
-- Using conditional expressions within a single mapping
-- Applying XPath functions for date formatting, number formatting, and more
+- The expression is **too long or complex to read and write comfortably in the inline input**
+- You want to **browse the function catalog** — the left panel lists all available XPath 3.1 functions organised by category, so you don't need to memorise them; drag one into the editor to insert it with its parameter placeholders
+- You want **auto-completion and hover help** — as you type, the editor suggests matching functions and shows their full signature and description on hover
 
 ---
 
@@ -68,8 +65,10 @@ To browse and use functions:
 
 {{< image-sh src="datamapper-xpath-functions.png" text="Browse available XPath functions" >}}
 
+The tab has a **"Filter functions…"** input at the top — type part of a function name to narrow the list across all categories instantly.
+
 > [!TIP]
-> You can collapse function categories by clicking the chevron next to the category header. This helps you focus on the category you need when browsing through the available functions.
+> You can also collapse function categories by clicking the chevron next to the category header.
 > {{< image-sh src="datamapper-xpath-functions-collapse.png" text="Click chevron to collapse a category" >}}
 
 2. **Drag the function** you need and drop it into the editor
