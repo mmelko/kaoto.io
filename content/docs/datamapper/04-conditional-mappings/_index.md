@@ -49,13 +49,13 @@ Use **Inner "if"** when the target field is always emitted but its *value* shoul
 
 1. **Click the `⋮` menu** on the target field and select **"Inner Instruction" → "Inner if"**
 
-<!-- MEDIA PLACEHOLDER: Screenshot showing the ⋮ mapping context menu open with "Inner Instruction" flyout expanded and "Inner if" highlighted. -->
+{{< image-sh src="datamapper-inner-if-menu.png" text="Inner Instruction flyout — click 'Inner if' to apply" >}}
 
 2. **Set the condition** on the `if` node that appears inside the field row
 
 3. **Map the value** onto the `if` node's child — this is the value written when the condition is true
 
-<!-- MEDIA PLACEHOLDER: Screenshot showing the resulting inner-if structure: the target field row with a nested if node below it, the if condition filled in, and a value-of mapping on the if child. -->
+{{< image-sh src="datamapper-inner-if-result.png" text="Resulting inner-if structure with condition and value mapping" >}}
 
 > [!TIP]
 > You can add a second **Inner "if"** on the same field to create an alternative branch: click the `⋮` menu on the existing `if` node and again select **"Inner Instruction" → "Inner if"**. The two `if` nodes become siblings inside the field, each writing its value when its own condition is true.
@@ -91,7 +91,7 @@ Use **Inner "choose-when-otherwise"** when the target field is always emitted bu
 
 1. **Click the `⋮` menu** on the target field and select **"Inner Instruction" → "Inner choose-when-otherwise"**
 
-<!-- MEDIA PLACEHOLDER: Screenshot showing the ⋮ mapping context menu with "Inner Instruction" flyout expanded and "Inner choose-when-otherwise" highlighted. -->
+{{< image-sh src="datamapper-inner-choose-menu.png" text="Inner Instruction flyout — click 'Inner choose-when-otherwise' to apply" >}}
 
 2. **Set the `when` condition** — click the condition input on the `when` node and drag a source field or type an XPath expression
 
@@ -99,7 +99,7 @@ Use **Inner "choose-when-otherwise"** when the target field is always emitted bu
 
 4. **Map the value for `otherwise`** — drag a source field or expression onto the `otherwise` node's child row
 
-<!-- MEDIA PLACEHOLDER: Screenshot showing the resulting inner-choose-when-otherwise structure: target field row with nested choose/when/otherwise nodes, each branch having its own value mapping. -->
+{{< image-sh src="datamapper-inner-choose-result.png" text="Resulting inner-choose-when-otherwise with value mappings on each branch" >}}
 
 5. **Add more when branches** (optional) — click the `⋮` menu on the `choose` node and select **"Add when"**
 
