@@ -2,12 +2,12 @@
 {{ $page := .wcPage }}
 {{ $block := .wcBlock }}
 
-<div class="mx-auto max-w-96 px-6 py-12 lg:px-8">
+<div class="mx-auto max-w-screen-xl px-6 py-8 lg:px-8">
   {{ with $block.content.items }}
-    <div class="grid gap-12">
+    <div class="grid gap-8">
       {{ range $index, $item := . }}
         {{ $is_even := eq (mod $index 2) 0 }}
-        <div class="grid items-center gap-8 lg:grid-cols-2">
+        <div class="grid items-center gap-6 lg:grid-cols-2">
           <div class="{{ if $is_even }}order-2 lg:order-1{{ else }}order-2{{ end }} text-center">
             {{ with $item.title }}
               <h3 class="text-2xl font-semibold tracking-tight text-gray-900 dark:text-gray-100 text-center">
@@ -24,11 +24,13 @@
             {{ $img := "" }}
             {{ with $item.image }}
               {{ $img = resources.Get (path.Join "media" .) }}
-              {{ if $img }}
-                <img class="w-full rounded-xl shadow-sm mx-auto" src="{{ $img.RelPermalink }}" alt="{{ $item.title | default "" | plainify }}" loading="lazy" />
-              {{ else }}
-                <img class="w-full rounded-xl shadow-sm mx-auto" src="{{ . | safeURL }}" alt="{{ $item.title | default "" | plainify }}" loading="lazy" />
-              {{ end }}
+              <div class="relative rounded-2xl p-2 bg-gradient-to-b from-gray-200/50 to-gray-300/30 dark:from-neutral-700/50 dark:to-neutral-800/30 border border-gray-200/80 dark:border-neutral-700/80 shadow-lg overflow-hidden">
+                {{ if $img }}
+                  <img class="w-full rounded-xl shadow-inner mx-auto object-cover" src="{{ $img.RelPermalink }}" alt="{{ $item.title | default "" | plainify }}" loading="lazy" />
+                {{ else }}
+                  <img class="w-full rounded-xl shadow-inner mx-auto object-cover" src="{{ . | safeURL }}" alt="{{ $item.title | default "" | plainify }}" loading="lazy" />
+                {{ end }}
+              </div>
             {{ end }}
           </div>
         </div>
