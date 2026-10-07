@@ -9,6 +9,14 @@
 
 <script>
   (function() {
+    // Native dialog Escape handling and form buttons cover keyboard dismissal.
+    // Preserve clicking outside the preview to dismiss it with a pointer.
+    document.addEventListener('click', function(event) {
+      if (event.target instanceof HTMLDialogElement && event.target.matches('.image-modal')) {
+        event.target.close();
+      }
+    });
+
     const pageName = "{{ $pageClass }}";
     document.body.classList.add(pageName);
 
