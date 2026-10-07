@@ -1,5 +1,5 @@
 {{/* Generate a unique ID if one isn't provided */}}
-{{ $id := .Get "id" | default (printf "toggle-%s" (.Page.RelPermalink | md5)) }}
+{{ $id := .Get "id" | default (printf "toggle-%s" (.Get "src" | md5)) }}
 {{ $modalId := printf "modal-%s" $id }}
 {{ $src := .Get "src" }}
 {{ $cleanSrc := strings.TrimPrefix "./" $src }}
@@ -27,7 +27,7 @@
     </div>
     <div class="content-area">
       <button type="button" class="image-preview-button" aria-haspopup="dialog" data-modal-target="{{ $modalId }}">
-        <img src="{{ $srcUrl }}" alt="Toggle Image" class="expandable-image">
+        <img src="{{ $srcUrl }}" alt="Toggle preview" class="expandable-image">
       </button>
     </div>
   </div>
@@ -37,9 +37,9 @@
       <label for="{{ $id }}" class="tab inactive">View Image</label>
       <span class="tab active">{{ $sourceLabel }}</span>
     </div>
-    <label for="{{ $id }}" class="content-area">
+    <div class="content-area">
       {{ highlight .Inner (.Get "lang") "" | safeHTML }}
-    </label>
+    </div>
   </div>
 </div>
 
@@ -48,5 +48,5 @@
   <form method="dialog">
     <button type="submit" class="modal-close" aria-label="Close preview" autofocus>&times;</button>
   </form>
-  <img class="modal-content" src="{{ $srcUrl }}" alt="Expanded Image">
+  <img class="modal-content" src="{{ $srcUrl }}" alt="Expanded preview">
 </dialog>
